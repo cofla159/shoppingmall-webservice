@@ -40,6 +40,6 @@ const ProductSchema = new Schema(
             type : String,
             required : false
         }
-});
+},{timestamps : true});
 
 export {ProductSchema};
