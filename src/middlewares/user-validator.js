@@ -46,7 +46,7 @@ export const validateSignup = [
     }),
 
     body('password')
-    .isLength({max:10})
+    .isLength({max:10, min:4})
     .withMessage('Password is too long. Make its length less than 10'),
 
     validate
