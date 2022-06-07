@@ -61,7 +61,7 @@
 
 #### 7. [어드민 페이지](https://kdt-gitlab.elice.io/sw_track/class_02_seoul/web_project/team4/team4/-/tree/main/src/views/adminPage)
     7.1 상품 CRUD 기능
-        상품 아이디 검색을 통해 특정 상품/삭제가 가능합니다. (주문 조회에서 상품 아이디 확인)
+        상품 아이디 검색을 통해 특정 상품 수정/삭제가 가능합니다. (주문 조회에서 상품 아이디 확인)
     7.2 주문 조회/취소
     7.3 기능별 모듈로 관리
     7.4 jwt 토큰을 통한 user role 확인
