@@ -55,7 +55,6 @@
       <section class="orderTitle">
         <div>배송 정보</div>
       </section>
-      <!-- <button type="button" class="getMyAdd">+ 기본 배송지 불러오기</button> -->
       <div class="orderContainer">
         <section class="shippingInfo">
           <form class="userInfo">
@@ -73,7 +72,10 @@
               />
             </div>
             <div class="field">
-              <label class="label" for="postalNumber">주소</label>
+              <div class="addInfoTitle">
+                <label class="label" for="postalNumber">주소</label>
+                <button type="button" class="button is-success getMyAdd">+기본 배송지 불러오기</button>
+              </div>          
               <div class="addressInfo">
                 <input
                   type="text"
@@ -104,8 +106,9 @@
             </div>
           </form>
           <section class="payInfo">
+            <p class="payInfoTitle">결제 정보</p><br>
             <div class="itemInfo"></div>
-            <hr>
+            <hr class="crossLine">
             <div class="priceInfo"></div>
           </section>
         </section>

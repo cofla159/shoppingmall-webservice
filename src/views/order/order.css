@@ -64,6 +64,16 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+.addInfoTitle {
+  display:flex;
+}
+.getMyAdd {
+  margin-left: 15px;
+  background-color: #b4e197 !important; 
+  color: black !important;
+  padding: 5px;
+  font-size: 12px;
+}
 
 .addressInfo {
   display: flex;
@@ -85,6 +95,13 @@ input::-webkit-inner-spin-button {
   border-radius: 5px / 5px;;
   line-height: 30px; 
   min-width: 300px;
+}
+.payInfoTitle {
+  font-size: 25px;
+  font-weight: 500;;
+}
+.crossLine {
+  margin: 10px 0;
 }
 
 #ordering{

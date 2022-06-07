@@ -7,7 +7,13 @@ const $itemInfo = document.querySelector('.itemInfo');
 const $priceInfo = document.querySelector('.priceInfo');
 const $orderBtn = document.querySelector('#ordering');
 const $findAddressBtn = document.querySelector("#findAddress");
-// const $getMyAddBtn = document.querySelector(".getMyAdd");
+const $getMyAddBtn = document.querySelector(".getMyAdd");
+
+let $deliveryName = document.getElementById('nameInput');
+let $deliveryPhone = document.getElementById('phonenumInput');
+let $deliveryZipCode = document.getElementById('postalNumber');
+let $deliveryAdd = document.getElementById('addInput1');
+let $deliveryDeAdd = document.getElementById('addInput2');
 
 const userEmail = sessionStorage.getItem('id');
 const token = sessionStorage.getItem('token');
@@ -34,7 +40,7 @@ function getItems() {
       `
       <p>상품 금액 ${addCommas(itemPrice)}원</p>
       <p>배송비 ${addCommas(delivery)}원</p>
-      <hr>
+      <hr class="crossLine">
       <p>총 ${addCommas(itemPrice+delivery)}원</p>
       `
     );
@@ -42,11 +48,11 @@ function getItems() {
 
 //주문 버튼을 누르면 데이터를 디비로 보내는 함수
 async function sendDataToDb() {
-  const deliveryName = document.getElementById('nameInput').value;
-  const deliveryPhone = document.getElementById('phonenumInput').value;
-  const deliveryZipCode = document.getElementById('postalNumber').value;
-  const deliveryAdd = document.getElementById('addInput1').value;
-  const deliveryDeAdd = document.getElementById('addInput2').value;
+  const deliveryName = $deliveryName.value;
+  const deliveryPhone = $deliveryPhone.value;
+  const deliveryZipCode = $deliveryZipCode.value;
+  const deliveryAdd = $deliveryAdd.value;
+  const deliveryDeAdd = $deliveryDeAdd.value;
 
   const deliveryAddFull = `(${deliveryZipCode}) ${deliveryAdd} ${deliveryDeAdd}`;
   const deliveryInfo = { name: deliveryName, phoneNumber: deliveryPhone, address: deliveryAddFull };
@@ -129,7 +135,21 @@ function addressFind() {
   }).open();
 }
 
+//마이페이지의 주소 불러오기
+async function getMyAdd() {
+  const resUser = await Api.get(
+    `/api/user/userlist/${sessionStorage.getItem("id")}`
+  );
+  const { fullName, phoneNumber, address } = resUser
+
+  $deliveryName.value = fullName;
+  $deliveryPhone.value = phoneNumber;
+  $deliveryZipCode.value = address.postalCode;
+  $deliveryAdd.value = address.address1;
+  $deliveryDeAdd.value = address.address2;
+}
+
 getItems();
 $orderBtn.addEventListener('click', sendDataToDb);
-$findAddressBtn.addEventListener("click", addressFind);
-// $getMyAddBtn.addEventListener();
+$findAddressBtn.addEventListener('click', addressFind);
+$getMyAddBtn.addEventListener('click', getMyAdd);
