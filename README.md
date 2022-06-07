@@ -47,6 +47,9 @@
 #### 5. [결제 페이지](https://kdt-gitlab.elice.io/sw_track/class_02_seoul/web_project/team4/team4/-/tree/main/src/views/cart)<br>
     5.1 주소 및 우편번호 검색 기능(Daum 주소 API 사용) **
 
+    5.2 기본 배송지 정보 불러오기 기능 **
+        불러오기 버튼 클릭 시 마이페이지에 미리 입력된 배송지 정보 자동입력
+
     5.2 배송 정보 유효성 검사
 
     5.3 주문 완료 시 정보 DB로 전송 및 주문완료 페이지 이동
